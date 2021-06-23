@@ -1,0 +1,23 @@
+extends layouts/main-layout.pug
+
+block styles 
+    link(rel="stylesheet", href="/css/apple.css")
+    link(rel="stylesheet", href="/css/shop.css")
+
+block content
+        main
+            if prods.length > 0
+                .grid
+                    each product in prods
+                        article.card.product-item
+                            header.card__header
+                                h1.product__title #{product.title}
+                            div.card__image
+                                img(src="https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-1024x640.jpeg")
+                            div.card_content
+                                h2.product_price $19.99
+                                p.product_description A very intersting book  
+                            .card_actions 
+                                button.btn Add to Cart
+            else 
+                h1 No Products
